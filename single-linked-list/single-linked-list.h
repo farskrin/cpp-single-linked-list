@@ -286,11 +286,11 @@ public:
     }
 
     SingleLinkedList(std::initializer_list<Type> values) {
-        create_list(values);       
+        CreateList(values);       
     }
 
     SingleLinkedList(const SingleLinkedList& other) {
-        create_list(other);
+        CreateList(other);
     }
 
     SingleLinkedList& operator=(const SingleLinkedList& rhs) {
@@ -316,7 +316,7 @@ public:
 
 private:
 	template<typename Container>
-    void create_list(const Container& container) {
+    void CreateList(const Container& container) {
         assert(size_ == 0 && head_.next_node == nullptr);
         SingleLinkedList tmp;
         for (const auto& value : container) {
@@ -330,7 +330,7 @@ private:
     }    
 
     template<typename InputIt>
-    void assign(InputIt first, InputIt last) { 
+    void Assign(InputIt first, InputIt last) { 
         for (auto it = first; it != last; ++it) {
             head_.next_node = new Node(*it, head_.next_node);           
             head_.next_node = head_.next_node->next_node;
